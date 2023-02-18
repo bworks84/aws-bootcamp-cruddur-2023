@@ -8,7 +8,7 @@
   - Registered a domain name - thecloudytech.net
   - Set up a gitpod account and integrated the workspace with GitHub repo. Also set up AWS CLI with the gitpod workspace and created my AWC CLI environment variables. 
   - I watched videos on AWS Spend Considerations, Security Considerations, and reviewed how to set up credentials via the CLI. 
-  - I build a conceptual and logical diagram of the AWS Bootcamp app we will be creating the next several months. 
+  - I build a conceptual and logical diagram of the AWS Bootcamp app we will be creating the next several months. (Submitted in img folder)
   - Created a honeycomb.io account, set up codespaces in Github, and set up MFA on github account. 
 
  #### Things to work on:
