@@ -15,5 +15,6 @@
 ###Steps
 
 - Built out both the frontend and backend api endpoint
+- Learned to use openAPI GUI
 - Tested locally with new notification
 - Fixed bug in backend so that frontend rendered correct notifications page and feed
