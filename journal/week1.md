@@ -23,3 +23,7 @@ Steps
 ## Homework Challenges
 - Ran the backend-flask Dockerfile as a script using : docker build -t "backend-devtest:Dockerfile" . 
     - That created an image named backend-devtest using the Dockerfile previously built out and placed it in the current directory
+- Successfully tagged and pushed docker image to DockerHub (public repo : bworks/aws_bootcamp)
+    - docker tag <image id> <hub-user>/<repo-name>:tagname
+    - docker commit <container id> <hub-user>/<repo-name>:tagname
+    - docker push <hub-user>/<repo-name>:tagname
