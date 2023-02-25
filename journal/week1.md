@@ -19,6 +19,13 @@ Steps
 - Tested locally with new notification
 - Fixed bug in backend so that frontend rendered correct notifications page and feed
 
+## Database setup
+
+Steps
+
+- Installed and test dynamodb via AWS ClI, added to docker-compose.yml file
+- Installed and tested postgresql. Required adding light server to init in gitpod.yml file and verifying via command psql -Upostgres -h localhost
+
 
 ## Homework Challenges
 - Ran the backend-flask Dockerfile as a script using : docker build -t "backend-devtest:Dockerfile" . 
@@ -27,3 +34,6 @@ Steps
     - docker tag <image id> <hub-user>/<repo-name>:tagname
     - docker commit <container id> <hub-user>/<repo-name>:tagname
     - docker push <hub-user>/<repo-name>:tagname
+- Added healthchecks to docker compose file for both frontend & backend. Verified backend is working, frontend is not because I didn't run npm install before docker compose up command. 
+- Installed Docker on local machine, logged in, clone github repo to local vscode, ran npm install for frontend, updated pip, and was able to get all containers running on local machine via docker compose and were displayed in Docker GUI. 
+- Launched a t2.micro instance on AWS, configured basic SG to allow SSH, used EC2-Connect to ssh into the EC2 instance, install yum, installed docker, pulled a 'Hello World' docker image, and executed docker run 'hello-world' image successfully!
