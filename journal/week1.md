@@ -1,6 +1,6 @@
 # Week 1 — App Containerization
 
-###Steps
+Steps
 
 - This week I created a new GitHub repo, well forked actually from the main AWS Bootcamp repo
 - Launched the repo in Gitpod where I used VSCode in the browser
@@ -12,9 +12,14 @@
 
 ## Week 1 Create the Notification 
 
-###Steps
+Steps
 
 - Built out both the frontend and backend api endpoint
 - Learned to use openAPI GUI
 - Tested locally with new notification
 - Fixed bug in backend so that frontend rendered correct notifications page and feed
+
+
+## Homework Challenges
+- Ran the backend-flask Dockerfile as a script using : docker build -t "backend-devtest:Dockerfile" . 
+    - That created an image named backend-devtest using the Dockerfile previously built out and placed it in the current directory
