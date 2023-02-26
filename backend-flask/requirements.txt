@@ -1,3 +1,7 @@
+flask
+flask-cors
+aws-xray-sdk
+
 backoff==2.2.1
 Deprecated==1.2.13
 googleapis-common-protos==1.58.0
