@@ -14,10 +14,6 @@ from services.messages import *
 from services.create_message import *
 from services.show_activity import *
 
-# X-Ray ----
-from aws_xray_sdk.core import xray_recorder
-from aws_xray_sdk.ext.flask.middleware import XRayMiddleware
-
 # Honeycomb ---> to create and initialize a tracer and an exporter that can send data to Honeycomb
 from opentelemetry import trace
 from opentelemetry.instrumentation.flask import FlaskInstrumentor
@@ -25,6 +21,25 @@ from opentelemetry.instrumentation.requests import RequestsInstrumentor
 from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
 from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import BatchSpanProcessor
+
+# X-Ray ----
+from aws_xray_sdk.core import xray_recorder
+from aws_xray_sdk.ext.flask.middleware import XRayMiddleware
+
+# CloudWatch
+import watchtower
+import logging
+from time import strftime
+
+# Configuring Logger to Use CloudWatch 
+# *** Went back and commented out below to save on spending ***
+# LOGGER = logging.getLogger(__name__)
+# LOGGER.setLevel(logging.DEBUG)
+# console_handler = logging.StreamHandler()
+# cw_handler = watchtower.CloudWatchLogHandler(log_group='cruddur')
+# LOGGER.addHandler(console_handler)
+# LOGGER.addHandler(cw_handler)
+# LOGGER.info("HomeActivities") 
 
 # Honeycomb ---> Initialize tracing and an exporter that can send data to Honeycomb
 provider = TracerProvider()
@@ -34,12 +49,14 @@ trace.set_tracer_provider(provider)
 tracer = trace.get_tracer(__name__)
 
 # X-Ray
-xray_url = os.getenv("AWS_XRAY_URL")
-xray_recorder.configure(service='backend-flask', dynamic_naming=xray_url)
+# *** turning off x-ray for now - 3/3 ***
+# xray_url = os.getenv("AWS_XRAY_URL")
+# xray_recorder.configure(service='backend-flask', dynamic_naming=xray_url)
 
 app = Flask(__name__)
+
 # X-Ray ------ (debugging: placed under app var above)
-XRayMiddleware(app, xray_recorder)
+# XRayMiddleware(app, xray_recorder)
 
 # Honeycomb ---> Initialize automatic instrumentation with Flask
 FlaskInstrumentor().instrument_app(app)
@@ -56,6 +73,14 @@ cors = CORS(
   allow_headers="content-type,if-modified-since",
   methods="OPTIONS,GET,HEAD,POST"
 )
+
+#CloudWatch error logging
+# turning off for now
+# @app.after_request
+# def after_request(response):
+#     timestamp = strftime('[%Y-%b-%d %H:%M]')
+#     LOGGER.error('%s %s %s %s %s %s', timestamp, request.remote_addr, request.method, request.scheme, request.full_path, response.status)
+#     return response
 
 @app.route("/api/message_groups", methods=['GET'])
 def data_message_groups():
@@ -94,7 +119,7 @@ def data_create_message():
 
 @app.route("/api/activities/home", methods=['GET'])
 def data_home():
-  data = HomeActivities.run()
+  data = HomeActivities.run() #Removed logger=LOGGER to save on spending
   return data, 200
 
 @app.route("/api/activities/notifications", methods=['GET'])
