@@ -4,6 +4,9 @@ aws-xray-sdk
 
 watchtower
 
+blinker
+rollbar
+
 backoff==2.2.1
 Deprecated==1.2.13
 googleapis-common-protos==1.58.0
