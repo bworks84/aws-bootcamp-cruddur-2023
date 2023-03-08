@@ -12,10 +12,14 @@ First instructional this week was installing honeycomb's observability tool, spe
     
 ## X-Ray
 Set up AWS X-Ray on useractivities for backend and tested in AWS dashboard.  Still need to attempt setting up xray between the frontend/backend. 
+ - Added subsegments after watching tutorial, verified app and X-ray traces were logging in AWS dashboard
 
 ## CloudWatch
 Set up AWS CloudWatch on homeactivities in backend, tested in AWS dashboard. Required a bit of debugging to get input parameters correct between homeactivities run function and app.py data_home func. 
 
+## Watched: 
+
 
 #### To Do :
     - Research all three services
+    - Finish Codespaces tutorial.  Stopped until I get closer to using all gitpod hours
