@@ -36,7 +36,7 @@ class CognitoJwtToken:
         keys_url = f"https://cognito-idp.{self.region}.amazonaws.com/{self.user_pool_id}/.well-known/jwks.json"
         try:
             response = self.request_client(keys_url)
-            self.jwk_keys = response.json()
+            self.jwk_keys = response.json()["keys"] # was missing ["keys"], front-end rendering correctly
             #print("this is reponse key", self.jwk_keys)
         except requests.exceptions.RequestException as e:
             raise FlaskAWSCognitoError(str(e)) from e
