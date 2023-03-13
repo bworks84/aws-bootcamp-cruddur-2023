@@ -6,16 +6,19 @@ AWS Cloud Bootcamp (Week 3) - https://www.youtube.com/watch?v=9obl7rVgzJw&list=P
 Week 3 Cognito Custom Pages - https://www.youtube.com/watch?v=T4X4yIzejTc&list=PLBfufR7vyJJ7k25byhRXJldB5AiwgNnWv&index=41. 
 Week 3 Cognito JWT Server Side Verify - https://www.youtube.com/watch?v=d079jccoG-M&list=PLBfufR7vyJJ7k25byhRXJldB5AiwgNnWv&index=42. 
 Week 3 - Exploring JWTs - https://www.youtube.com/watch?v=nJjbI4BbasU&list=PLBfufR7vyJJ7k25byhRXJldB5AiwgNnWv&index=43. 
-Week 3 - Improving UI Contrast and Implement CSS Variables for Theming - https://www.youtube.com/watch?v=m9V4SmJWoJU&. list=PLBfufR7vyJJ7k25byhRXJldB5AiwgNnWv&index=44
+Week 3 - Improving UI Contrast and Implement CSS Variables for Theming - https://www.youtube.com/watch?v=m9V4SmJWoJUlist=PLBfufR7vyJJ7k25byhRXJldB5AiwgNnWv&index=44. 
 
 ## Steps
  - Provision via ClickOps a Amazon Cognito User Pool
  - Install and configure Amplify client-side library for Amazon Cognito
  - Implement API calls to Amazon Coginto for custom login, signup, recovery and forgot password page
     1. Needed significant troubleshooting to get token errors cleared
+    2. Able to sign up new user and sign-in
+    3. Recovery page works and does send email now
  - Show conditional elements and data based on logged in or logged out
  - Verify JWT Token server side to serve authenticated API endpoints in Flask Application
  - Utilized logger a lot to trouble shoot Cognito JSON web token server side setup 
+ - Updated UI themes in CSS and utilized CSS variables
 
 
 #### Homework
