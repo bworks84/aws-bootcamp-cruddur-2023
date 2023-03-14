@@ -9,6 +9,9 @@ rollbar
 
 Flask-AWSCognito
 
+psycopg[binary]
+psycopg[pool]
+
 backoff==2.2.1
 Deprecated==1.2.13
 googleapis-common-protos==1.58.0
