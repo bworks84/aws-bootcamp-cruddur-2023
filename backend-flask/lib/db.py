@@ -41,6 +41,7 @@ class Db:
     no_color = '\033[0m'
     print(f'{cyan} SQL STATEMENT-[{title}]------{no_color}')
     print(sql)
+
   def query_commit(self,sql,params={}):
     self.print_sql('commit with returning',sql)
 
@@ -49,9 +50,11 @@ class Db:
 
     try:
       with self.pool.connection() as conn:
-        cur =  conn.cursor()
+        cur = conn.cursor()
+        print('-------------------------------')
         print('PRINTING PARAMS ---------------')
-        print(params)
+        print('-------------------------------')
+        print('These are the params', params)
         cur.execute(sql,params)
         if is_returning_id:
           returning_id = cur.fetchone()[0]
@@ -60,6 +63,7 @@ class Db:
           return returning_id
     except Exception as err:
       self.print_sql_err(err)
+
   # when we want to return a json object
   def query_array_json(self,sql,params={}):
     self.print_sql('array',sql)

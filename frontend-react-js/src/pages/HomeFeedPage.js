@@ -70,7 +70,6 @@ React.useEffect(()=>{
     //prevents double call
     if (dataFetchedRef.current) return;
     dataFetchedRef.current = true;
-
     loadData();
     checkAuth();
   }, [])
@@ -80,6 +79,7 @@ React.useEffect(()=>{
       <DesktopNavigation user={user} active={'home'} setPopped={setPopped} />
       <div className='content'>
         <ActivityForm  
+          user_handle={user} //updated component to pass the user_handle prop
           popped={popped}
           setPopped={setPopped} 
           setActivities={setActivities} 
