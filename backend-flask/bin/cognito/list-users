@@ -4,21 +4,21 @@ import boto3
 import os
 import json
 
-userpool_id = os.getenv("AWS_COGNITO_USER_POOL_ID")
+userpool_id = os.getenv("AWS_COGNITO_USER_POOL_ID") #Get cognito pool id
 client = boto3.client('cognito-idp')
-params = {
+params = {                                          #Get select user attrs
   'UserPoolId': userpool_id,
   'AttributesToGet': [
       'preferred_username',
       'sub'
   ]
 }
-response = client.list_users(**params)
-users = response['Users']
+response = client.list_users(**params)              
+users = response['Users']                           #get response back called users
 
-print(json.dumps(users, sort_keys=True, indent=2, default=str))
+print(json.dumps(users, sort_keys=True, indent=2, default=str))  #print in json format
 
-dict_users = {}
+dict_users = {}                                     # put data into dictionary
 for user in users:
   attrs = user['Attributes']
   sub    = next((a for a in attrs if a["Name"] == 'sub'), None)
