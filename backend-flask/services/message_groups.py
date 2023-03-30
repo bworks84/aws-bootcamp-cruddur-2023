@@ -5,6 +5,7 @@ from lib.db import db
 
 class MessageGroups:
   def run(cognito_user_id):
+    
     model = {
       'errors': None,
       'data': None
@@ -22,4 +23,5 @@ class MessageGroups:
     print("list_message_groups:",data)
 
     model['data'] = data
-    return model
+    print('---------------------model-------------------')
+    return model 
