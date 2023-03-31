@@ -142,7 +142,7 @@ def data_message_groups():
     else:
       return model['data'], 200
   except TokenVerifyError as e:
-    # unauthenicatied request
+    # unauthenicated request
     app.logger.debug(e)
     return {}, 401
 
