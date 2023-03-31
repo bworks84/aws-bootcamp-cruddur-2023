@@ -3,6 +3,7 @@ import MessageGroupItem from './MessageGroupItem';
 import MessageGroupNewItem from './MessageGroupNewItem';
 export default function MessageGroupFeed(props) {
   let message_group_new_item;
+  
   if (props.otherUser) {
     message_group_new_item = <MessageGroupNewItem user={props.otherUser} />
   }
