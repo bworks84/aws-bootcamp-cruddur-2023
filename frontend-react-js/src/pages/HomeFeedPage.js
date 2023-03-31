@@ -6,7 +6,6 @@ import DesktopSidebar     from '../components/DesktopSidebar';
 import ActivityFeed from '../components/ActivityFeed';
 import ActivityForm from '../components/ActivityForm';
 import ReplyForm from '../components/ReplyForm';
-
 import checkAuth from '../lib/CheckAuth';
 
 export default function HomeFeedPage() {
@@ -36,6 +35,8 @@ export default function HomeFeedPage() {
       console.log(err);
     }
   };
+
+
   
   React.useEffect(()=>{
     //prevents double call
