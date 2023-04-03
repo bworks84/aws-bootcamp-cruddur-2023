@@ -20,3 +20,12 @@
 
 
 "Should work now for messages"
+
+aws ecs execute-command  \
+--region $AWS_DEFAULT_REGION \
+--cluster cruddur \
+--task 4664c9a3def34e5ca43dba2dd08fccd3 \
+--container backend-flask \
+--command "/bin/bash" \
+--interactive
+
