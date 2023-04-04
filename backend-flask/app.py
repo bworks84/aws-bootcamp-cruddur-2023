@@ -127,6 +127,7 @@ def init_rollbar():
 #     rollbar.report_message('Hello World!', 'warning')
 #     return "Hello World!"
 
+
 @app.route('/api/health-check')
 def health_check():
   return {'success': True}, 200
