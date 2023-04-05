@@ -18,7 +18,6 @@
 - ./bin/ddb/patterns/list-conversations
 - ./bin/ddb/patterns/get-conversations
 
-
 "Should work now for messages"
 
 aws ecs execute-command  \
@@ -29,15 +28,4 @@ aws ecs execute-command  \
 --command "/bin/bash" \
 --interactive
 
-"serviceConnectConfiguration": {
-      "enabled": true,
-      "namespace": "cruddur",
-      "services": [
-        {
-          "portName": "backend-flask",
-          "discoveryName": "backend-flask",
-          "clientAliases": [{"port": 4567}]
-        }
-      ]
-    },
 
