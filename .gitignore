@@ -1,3 +1,5 @@
 docker/**/*
 
 /workspace/aws-bootcamp-cruddur-2023/notepad.md
+
+/home/gitpod/.docker/config.json
