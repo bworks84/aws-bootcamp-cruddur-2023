@@ -30,9 +30,9 @@ export default function ConfirmationPage() {
     } catch (err) {
       console.log(err)
       if (err.message == 'Username cannot be empty'){
-        setCognitoErrors("You need to provide an email in order to send Resend Activiation Code")   
+        setErrors("You need to provide an email in order to send Resend Activiation Code")   
       } else if (err.message == "Username/client id combination not found."){
-        setCognitoErrors("Email is invalid or cannot be found.")   
+        setErrors("Email is invalid or cannot be found.")   
       }
     }
   }
