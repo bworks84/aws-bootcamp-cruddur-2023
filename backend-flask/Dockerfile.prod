@@ -1,13 +1,27 @@
-FROM 902117628006.dkr.ecr.us-east-1.amazonaws.com/cruddur-python:3.10-slim-buster
+FROM node:16.18 AS build
 
-WORKDIR /backend-flask
+ARG REACT_APP_BACKEND_URL
+ARG REACT_APP_AWS_PROJECT_REGION
+ARG REACT_APP_AWS_COGNITO_REGION
+ARG REACT_APP_AWS_USER_POOLS_ID
+ARG REACT_APP_CLIENT_ID
 
-COPY requirements.txt requirements.txt
+ENV REACT_APP_BACKEND_URL=$REACT_APP_BACKEND_URL
+ENV REACT_APP_AWS_PROJECT_REGION=$REACT_APP_AWS_PROJECT_REGION
+ENV REACT_APP_AWS_COGNITO_REGION=$REACT_APP_AWS_COGNITO_REGION
+ENV REACT_APP_AWS_USER_POOLS_ID=$REACT_APP_AWS_USER_POOLS_ID
+ENV REACT_APP_CLIENT_ID=$REACT_APP_CLIENT_ID
 
-RUN pip3 install -r requirements.txt
+COPY . ./frontend-react-js
+WORKDIR /frontend-react-js
+RUN npm install
+RUN npm run build
 
-COPY . .
+# Nginx Image
+FROM nginx:1.23.3-alpine
 
-EXPOSE ${PORT}
+# --from build is coming from the Base Image
+COPY --from=build /frontend-react-js/build /usr/share/nginx/html
+COPY --from=build /frontend-react-js/nginx.conf /etc/nginx/nginx.conf
 
-CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567", "--no-debug","--no-debugger", "--no-reload"]
+EXPOSE 3000
