@@ -44,8 +44,8 @@
           {"name": "OTEL_EXPORTER_OTLP_ENDPOINT", "value": "https://api.honeycomb.io"},
           {"name": "AWS_COGNITO_USER_POOL_ID", "value": "us-east-1_MadEULFtw"},
           {"name": "AWS_COGNITO_USER_POOL_CLIENT_ID", "value": "349gcj5ohosp5m69m0e7r6vjl2"},
-          {"name": "FRONTEND_URL", "value": "*"},
-          {"name": "BACKEND_URL", "value": "*"},
+          {"name": "FRONTEND_URL", "value": "https://thecloudytech.net"},
+          {"name": "BACKEND_URL", "value": "https://api.thecloudytech.net"},
           {"name": "AWS_DEFAULT_REGION", "value": "us-east-1"}
         ],
         "secrets": [
