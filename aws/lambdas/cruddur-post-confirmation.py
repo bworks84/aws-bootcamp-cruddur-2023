@@ -7,10 +7,11 @@ def lambda_handler(event, context):
     print('userAttributes')
     print(user)
 
-    user_display_name  = user['name']
-    user_email         = user['email']
-    user_handle        = user['preferred_username']
-    user_cognito_id    = user['sub']
+    user_display_name = user['name']
+    user_email = user['email']
+    user_handle = user['preferred_username']
+    user_cognito_id = user['sub']
+    
     try:
       print('entered-try')
       sql = f"""
